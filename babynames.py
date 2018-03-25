@@ -40,7 +40,7 @@ def extract_names(filename):
   followed by the name-rank strings in alphabetical order.
   ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
   """
-  pattern = r"<td>(\d+?)</td><td>(\w+?)</td><td>(\w+?)<"
+  pattern = r"<td>(\d+)</td><td>(\w+)</td><td>(\w+)<"
   with open(filename, "r") as f:
     matchs = re.findall(pattern, f.read())
     boyrank = ["{} {}".format(name[1], name[0]) for name in matchs]
