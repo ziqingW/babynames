@@ -47,7 +47,7 @@ def extract_names(filename):
     girlrank = ["{} {}".format(name[2], name[0]) for name in matchs]
     namerank = sorted(boyrank + girlrank)
     namerank.insert(0, filename[4:8])
-    return str(namerank)
+    return namerank
 
 def main():
   # This command-line parsing code is provided.
@@ -71,8 +71,8 @@ def main():
   filenames = ["baby1990.html", "baby1992.html", "baby1994.html", "baby1996.html", "baby1998.html", "baby2000.html", "baby2002.html", "baby2004.html", "baby2006.html", "baby2008.html"]
   for file in filenames:
     result = extract_names(file)
-    with open("summary.txt", "a") as f:
-      f.write(result + "\n")
+    with open("summary{}.txt".format(file[4:8]), "w") as f:
+      f.write("\n".join(result))
   
 if __name__ == '__main__':
   main()
